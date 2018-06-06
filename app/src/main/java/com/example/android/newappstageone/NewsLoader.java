@@ -28,10 +28,9 @@ public class NewsLoader extends AsyncTaskLoader<List<News>> {
         HttpHandler sh = new HttpHandler();
 
 
-        List<News> newsList = HttpHandler.fetchEarthquakeData(mUrl);
+        List<News> newsList = HttpHandler.fetchBreakingNewsData(mUrl);
         return newsList;
     }
-
 
 
     @Override

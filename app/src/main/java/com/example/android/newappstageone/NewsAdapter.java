@@ -1,7 +1,6 @@
 package com.example.android.newappstageone;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +30,12 @@ public class NewsAdapter extends ArrayAdapter<News> {
         News news = getItem(position);
 
         TextView titleTextView = listItemView.findViewById(R.id.title_text_view);
+        TextView sectionNameTextView = listItemView.findViewById(R.id.section_name_text_view);
+        TextView dateTextView = listItemView.findViewById(R.id.date_text_view);
+
         titleTextView.setText(news.getTitle());
+        sectionNameTextView.setText(news.getSectionName());
+        dateTextView.setText(news.getDate());
 
         return listItemView;
     }

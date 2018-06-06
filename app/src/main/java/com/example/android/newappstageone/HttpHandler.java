@@ -28,7 +28,7 @@ public class HttpHandler {
     public HttpHandler() {
     }
 
-    public static List<News> fetchEarthquakeData(String requestUrl) {
+    public static List<News> fetchBreakingNewsData(String requestUrl) {
         URL url = createUrl(requestUrl);
 
         String jsonResponse = null;
@@ -94,7 +94,6 @@ public class HttpHandler {
     }
 
 
-
     private static List<News> extractFeatureFromJson(String earthquakeJSON) {
 
         if (TextUtils.isEmpty(earthquakeJSON)) {
@@ -112,8 +111,10 @@ public class HttpHandler {
             for (int i = 0; i < newsArray.length(); i++) {
                 JSONObject c = newsArray.getJSONObject(i);
                 String title = c.getString("webTitle");
-
-                News news = new News(title);
+                String date = c.getString("webPublicationDate");
+                String url = c.getString("webUrl");
+                String sectionName = c.getString("sectionName");
+                News news = new News(title, date, url, sectionName);
                 newsList.add(news);
             }
         } catch (final JSONException e) {
